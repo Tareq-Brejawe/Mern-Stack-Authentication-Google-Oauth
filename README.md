@@ -8,6 +8,7 @@ MAILTRAP_TOKEN = your.mailtrap.token
 CLIENT_URL = http://localhost:3000
 
 .env.local ---> frontend
+
 NEXT_PUBLIC_RECAPATCHA_SITE_KEY= your.recaptcha.site.key
 NEXT_PUBLIC_GOOGLE_CLIENT_ID= your.google.client.id
 NEXT_PUBLIC_RECAPATCHA_SECRET_KEY= your.recaptcha.secret.key
