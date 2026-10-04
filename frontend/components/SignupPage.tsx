@@ -7,7 +7,7 @@ import { useAuth } from "@/store/authStore";
 import { useRouter } from "next/navigation";
 import { ImSpinner2 } from "react-icons/im";
 import Link from "next/link";
-import {} from "react-google-recaptcha";
+
 import ReCAPTCHA from "react-google-recaptcha";
 import { GoogleLogin } from "@react-oauth/google";
 
@@ -151,7 +151,7 @@ export default function SignupPage() {
 
   const router = useRouter();
   const { isLoading, error, signup, googleLogin } = useAuth();
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  const [captchaToken, setCaptchaToken] = useState<any>();
   const [captchaError, setCaptchaError] = useState("");
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const handleChange = (e: any) => {
