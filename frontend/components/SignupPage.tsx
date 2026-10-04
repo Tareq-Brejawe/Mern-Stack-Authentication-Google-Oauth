@@ -151,7 +151,7 @@ export default function SignupPage() {
 
   const router = useRouter();
   const { isLoading, error, signup, googleLogin } = useAuth();
-  const [captchaToken, setCaptchaToken] = useState<any>();
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
   const [captchaError, setCaptchaError] = useState("");
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const handleChange = (e: any) => {
@@ -284,7 +284,7 @@ export default function SignupPage() {
             <ReCAPTCHA
               sitekey={process.env.NEXT_PUBLIC_RECAPATCHA_SITE_KEY!}
               ref={recaptchaRef}
-              onChange={(token) => setCaptchaToken(token)}
+              onChange={(token: string | null) => setCaptchaToken(token)}
               onExpired={() => setCaptchaToken(null)}
             />
           </div>
