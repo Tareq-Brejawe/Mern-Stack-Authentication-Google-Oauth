@@ -21,11 +21,15 @@ app.use(cors({origin:'http://localhost:3000',credentials:true}))
 app.use('/api/auth',useRoutes);
 
 
-if(process.env.NODE_ENV === 'production') {
-    app.use(express.static(path.join(__dirname,'frontend/build')));
-    app.get('/{*splat}',(req,res)=>{
-        res.sendFile(path.resolve(__dirname,'frontend','out','index.html'));
-    })}
+if (process.env.NODE_ENV === 'production') {
+  const outDir = path.join(__dirname, 'frontend', 'out');
+
+  app.use(express.static(outDir, { extensions: ['html'] }));
+
+  app.get('/{*splat}', (req, res) => {
+    res.sendFile(path.join(outDir, 'index.html'));
+  });
+}
     
 
 app.listen(PORT,()=>{
